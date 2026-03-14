@@ -1,15 +1,20 @@
-let n = 6;
+let n = 4;
+let size = 2 * n - 1;
 
-for(let i = 1 ; i <=n ; i++){
-    let row = '';
+for (let i = 0; i < size; i++) {
+    let row = "";
 
-    for(let j = 1 ; j<=i ; j++){
-        if((i+j)%2 === 0){
-            row+='1'
-        }else{
-            row+='0';
-        }
+    for (let j = 0; j < size; j++) {
+
+        let top = i;
+        let left = j;
+        let right = size - 1 - j;
+        let bottom = size - 1 - i;
+
+        let min = Math.min(top, bottom, left, right);
+
+        row += (n - min) + " ";
     }
 
-    console.log(row)
+    console.log(row.trim());
 }
